@@ -1,0 +1,236 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light_blue"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:background="@color/teal_500"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_button_size"
+            android:layout_marginTop="@dimen/textview_margin_topbot"
+            android:layout_marginBottom="@dimen/textview_margin_topbot"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/calcul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:background="@color/teal_500"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_button_size"
+            android:layout_marginTop="@dimen/textview_margin_topbot"
+            android:layout_marginBottom="@dimen/textview_margin_topbot"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="4"
+        android:columnCount="4"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/numero1"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/button_margin_start"
+            android:layout_marginEnd="@dimen/button_margin_end_15dp"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/un"/>
+
+        <Button
+            android:id="@+id/numero2"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/deux"/>
+
+        <Button
+            android:id="@+id/numero3"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/trois"/>
+
+        <Button
+            android:id="@+id/operation_plus"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_200"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/plus"/>
+
+        <Button
+            android:id="@+id/numero4"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/button_margin_start"
+            android:layout_marginEnd="@dimen/button_margin_end_15dp"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/quatre"/>
+
+        <Button
+            android:id="@+id/numero5"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/cinq"/>
+
+        <Button
+            android:id="@+id/numero6"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/six"/>
+
+        <Button
+            android:id="@+id/operation_moins"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_200"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/moins"/>
+
+        <Button
+            android:id="@+id/numero7"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/button_margin_start"
+            android:layout_marginEnd="@dimen/button_margin_end_15dp"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/sept"/>
+
+        <Button
+            android:id="@+id/numero8"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/button_margin_end_10dp"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/huit"/>
+
+        <Button
+            android:id="@+id/numero9"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/button_margin_end_10dp"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/neuf"/>
+
+        <Button
+            android:id="@+id/operation_fois"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/button_margin_end_15dp"
+            android:backgroundTint="@color/teal_200"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/fois"/>
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:textSize="@dimen/text_button_size"
+            android:backgroundTint="@color/teal_200"
+            android:layout_marginStart="@dimen/button_margin_start"
+            android:layout_marginEnd="@dimen/button_margin_end_15dp"
+            android:text="@string/clear"/>
+
+        <Button
+            android:id="@+id/numero0"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_700"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/zero"/>
+
+        <Button
+            android:id="@+id/operation_modulo"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_200"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/modulo"/>
+
+        <Button
+            android:id="@+id/operation_divise"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:orientation="vertical"
+            android:backgroundTint="@color/teal_200"
+            android:textSize="@dimen/text_button_size"
+            android:text="@string/divise"/>
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/comma"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_size"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/button_margin_end_10dp"
+                android:backgroundTint="@color/teal_200"
+                android:textSize="@dimen/text_button_size"
+                android:text="@string/comma"/>
+
+        </LinearLayout>
+            <Button
+                android:id="@+id/calculer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_size"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/button_margin_end_10dp"
+                android:backgroundTint="@color/teal_200"
+                android:textSize="@dimen/text_button_size"
+                android:text="@string/egal"/>
+    </LinearLayout>
+
+</LinearLayout>
