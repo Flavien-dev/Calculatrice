@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         BT_opera_plus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if (résultatFinal == 0.0) {
+                if (résultatFinal != 0.0) {
                     opérateur = "+";
                 }
 
@@ -113,9 +113,6 @@ public class MainActivity extends AppCompatActivity {
                         TV_result.setText("");
                         résultatFinal = buffer;
                     } else {
-                        if (TV_calcul.getText().toString().equals("")) {
-                            buffer = 0.0;
-                        }
                         // met l'opérateur - dans la variable opérateur
                         opérateur = "+";
                         résultatFinal = calculer(résultatFinal, buffer, opérateur);
@@ -148,11 +145,13 @@ public class MainActivity extends AppCompatActivity {
         BT_opera_moins.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if (résultatFinal == 0.0) {
+                if (résultatFinal != 0.0) {
                     opérateur = "-";
                 }
 
                 try {
+                    // initialise le buffer
+                    buffer = Double.parseDouble(TV_calcul.getText().toString());
 
                     Log.wtf("buffer - " , Double.toString(buffer));
 
@@ -160,9 +159,6 @@ public class MainActivity extends AppCompatActivity {
                         TV_result.setText("");
                         résultatFinal = buffer;
                     } else {
-                        if (TV_calcul.getText().toString().equals("")) {
-                            buffer = 0.0;
-                        }
                         résultatFinal = calculer(résultatFinal, buffer, opérateur);
                         opérateur = "-";
                     }
@@ -364,6 +360,9 @@ public class MainActivity extends AppCompatActivity {
                     TV_result.setText(Double.toString(résultatFinal));
 
                     Log.wtf("résultat = ", Double.toString(résultatFinal));
+
+                    // sauvegarde le résultat final
+                    buffer = résultatFinal;
 
                     // vide la TextView TV_calcul
                     TV_calcul.setText("");
