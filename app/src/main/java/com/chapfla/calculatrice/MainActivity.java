@@ -98,20 +98,28 @@ public class MainActivity extends AppCompatActivity {
         BT_opera_plus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                if (résultatFinal == 0.0) {
+                    opérateur = "+";
+                }
+
                 try {
                     // initialise le buffer
                     buffer = Double.parseDouble(TV_calcul.getText().toString());
 
-                    Log.wtf("buffer + ",Double.toString(buffer));
+                    Log.wtf("buffer ", Double.toString(buffer));
+                    Log.wtf("résultat ", Double.toString(résultatFinal));
 
                     if (résultatFinal == 0.0) {
+                        TV_result.setText("");
                         résultatFinal = buffer;
                     } else {
-                        // effectue le calcul des 2 variables selon l'opérateur
-                        résultatFinal = calculer(résultatFinal,buffer,opérateur);
+                        if (TV_calcul.getText().toString().equals("")) {
+                            buffer = 0.0;
+                        }
+                        // met l'opérateur - dans la variable opérateur
+                        opérateur = "+";
+                        résultatFinal = calculer(résultatFinal, buffer, opérateur);
                     }
-                    // met l'opérateur + dans la variable opérateur
-                    opérateur = "+";
 
                     // affiche la valeur du buffer dans la TextView TV_result
                     TV_result.append(Double.toString(buffer));
@@ -134,33 +142,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         /**
          * Exécute le code du bouton -
          */
         BT_opera_moins.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                try {
+                if (résultatFinal == 0.0) {
+                    opérateur = "-";
+                }
 
-                    // initialise le buffer
-                    buffer = Math.abs(Double.parseDouble(TV_calcul.getText().toString()));
+                try {
 
                     Log.wtf("buffer - " , Double.toString(buffer));
 
                     if (résultatFinal == 0.0) {
+                        TV_result.setText("");
                         résultatFinal = buffer;
                     } else {
-                        // effectue le calcul des 2 variables selon l'opérateur
+                        if (TV_calcul.getText().toString().equals("")) {
+                            buffer = 0.0;
+                        }
                         résultatFinal = calculer(résultatFinal, buffer, opérateur);
+                        opérateur = "-";
                     }
 
-                    // affiche la valeur du buffer dans la TextView TV_result
                     TV_result.append(Double.toString(buffer));
-
-                    // met l'opérateur - dans la variable opérateur
-                    opérateur = "-";
 
                     // affiche l'opérateur dans la TextView TV_result
                     TV_result.append("-");
@@ -172,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
                     BT_calculer.setEnabled(true);
                 } catch (Exception e) {
                     // indique si il y a eu un problème
-                    Log.i("ça ne fonctionne pas?","non");
+                    Log.i("le moins ne fonctionne pas?","non");
                 }
                 // dégrise les boutons
                 BT_comma.setEnabled(true);
@@ -339,7 +346,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-
                     // initialise le buffer
                     buffer = Math.abs(Double.parseDouble(TV_calcul.getText().toString()));
 
@@ -347,12 +353,11 @@ public class MainActivity extends AppCompatActivity {
                     Log.wtf("operateur = ", opérateur);
                     Log.wtf("résultat = ", Double.toString(résultatFinal));
 
-                    switch (opérateur) {
-                        case "+": résultatFinal = résultatFinal + buffer;break;
-                        case "-": résultatFinal = résultatFinal - buffer;break;
-                        case "*": résultatFinal = résultatFinal * buffer;break;
-                        case "/": résultatFinal = résultatFinal / buffer;break;
-                        case "%": résultatFinal = résultatFinal % buffer;break;
+                    if (résultatFinal == 0.0) {
+                        résultatFinal = buffer;
+                    } else {
+                        // effectue le calcul des 2 variables selon l'opérateur
+                        résultatFinal = calculer(résultatFinal,buffer,opérateur);
                     }
 
                     // change le contenu de la TextView TV_result
@@ -360,13 +365,10 @@ public class MainActivity extends AppCompatActivity {
 
                     Log.wtf("résultat = ", Double.toString(résultatFinal));
 
-                    // sauvegarde le résultat final
-                    buffer = résultatFinal;
-
                     // vide la TextView TV_calcul
                     TV_calcul.setText("");
 
-                    Log.wtf("buffer = 2 ", Double.toString(buffer));
+                    Log.wtf("buffer du résultat ", Double.toString(buffer));
 
                     // dégriser les boutons
                     BT_calculer.setEnabled(true);
@@ -391,6 +393,7 @@ public class MainActivity extends AppCompatActivity {
             case "*": calcul = nombre1 * nombre2;break;
             case "/": calcul = nombre1 / nombre2;break;
             case "%": calcul = nombre1 % nombre2;break;
+            default: calcul = nombre1;break;
         }
         return calcul;
     }
